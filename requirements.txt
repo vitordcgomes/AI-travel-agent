@@ -1,0 +1,7 @@
+#openai
+#dotenv
+#langchain
+#langchain_community
+#langchain_openai
+#duckduckgo-search
+#wikipedia
