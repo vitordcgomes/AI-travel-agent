@@ -11,20 +11,22 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnableSequence
 import bs4
 
+import json
+
 load_dotenv()
 gpt = ChatOpenAI(model="gpt-3.5-turbo")
 
-query = """
-Vou viajar para Londres em agosto de 2024. 
-Quero que faça um roteiro de viagem para mim com eventos que irão ocorrer na data da viagem e com o preço da passagem de São Paulo para Londres em dólares.
-"""
+# query = """
+# Vou viajar para Londres em agosto de 2024. 
+# Quero que faça um roteiro de viagem para mim com eventos que irão ocorrer na data da viagem e com o preço da passagem de São Paulo para Londres em dólares.
+# """
 
 def researchAgent(query, llm):
     tools = load_tools(['ddg-search', 'wikipedia'], llm=llm)
     prompt = hub.pull('hwchase17/react')
 
     agent = create_react_agent(llm=llm, tools=tools, prompt=prompt)
-    agent_executor = AgentExecutor(agent=agent, tools=tools, prompt=prompt, verbose=True)
+    agent_executor = AgentExecutor(agent=agent, tools=tools, prompt=prompt) # verbose=False
     web_context = agent_executor.invoke({"input": query})
     
     return web_context['output']
@@ -81,4 +83,23 @@ def getResponse(query, llm):
     
     return response
 
-print(getResponse(query, gpt).content)
+# print(getResponse(query, gpt).content)
+
+def lambdaHandler(event, context):
+    # query = event.get("question")
+    
+    body = json.loads(event.get('body', {}))
+    
+    query = body.get('question', 'question parameter not recognized')
+    response = getResponse(query, gpt).content
+    return {
+        "statusCode": 200,
+        "headers": {
+            "Content-type": "application/json"
+        },
+        "body": json.dumps ({
+            "message": "Task completed succesfuly",
+            "details": response,
+        })
+    }
+
