@@ -5,3 +5,7 @@
 #langchain_openai
 #duckduckgo-search
 #wikipedia
+
+#langchainhub
+#chromadb
+#beautifulsoup4
