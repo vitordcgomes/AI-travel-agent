@@ -34,8 +34,16 @@ def researchAgent(query, llm):
 # print(researchAgent(query, gpt))
 
 def loadData(): 
+    web_paths = [
+        "https://www.dicasdeviagem.com/inglaterra",
+        "https://www.dicasdeviagem.com/alemanha",  
+        "https://www.dicasdeviagem.com/portugal",
+        "https://www.dicasdeviagem.com/brasil",
+        "https://www.dicasdeviagem.com/caribe/"
+    ]
+    
     loader = WebBaseLoader(
-        web_paths=["https://www.dicasdeviagem.com/inglaterra"],
+        web_paths=web_paths,
         bs_kwargs=dict(parse_only=bs4.SoupStrainer(class_=("postcontentwrap", "pagetitleloading background-imaged loading-dark")))
     )
     
@@ -92,14 +100,19 @@ def lambdaHandler(event, context):
     
     query = body.get('question', 'question parameter not recognized')
     response = getResponse(query, gpt).content
+    
+    print(response)
     return {
         "statusCode": 200,
         "headers": {
-            "Content-type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",  # Permitir todos os domínios, ajuste conforme necessário
+            "Access-Control-Allow-Methods": "POST, OPTIONS",
+            "Access-Control-Allow-Headers": "Content-Type"
         },
         "body": json.dumps ({
             "message": "Task completed succesfuly",
             "details": response,
-        })
+        }, indent=4)
     }
-
+    
