@@ -5,7 +5,7 @@ document.getElementById('travelForm').addEventListener('submit', async function(
 
     const responseContainer = document.getElementById('responseContainer');
     const responseElement = document.getElementById('response');
-    responseElement.innerHTML = 'Carregando...';
+    responseElement.innerHTML = 'Loading...';
 
     try {
         const response = await fetch('http://localhost:8080/http://api-travelagent-232686593.us-east-2.elb.amazonaws.com', {
@@ -17,13 +17,13 @@ document.getElementById('travelForm').addEventListener('submit', async function(
         });
 
         if (!response.ok) {
-            throw new Error('Erro na requisição: ' + response.statusText);
+            throw new Error('Request Error: ' + response.statusText);
         }
 
         const data = await response.json();
         responseElement.innerHTML = formatResponse(data.details);
     } catch (error) {
-        responseElement.textContent = 'Ocorreu um erro: ' + error.message;
+        responseElement.textContent = 'Error: ' + error.message;
     }
 });
 
