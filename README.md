@@ -2,8 +2,6 @@
 
 ## Implementing an AI Travel Agent using OpenAI's text API and LangChain framework to track information about future events with the help of duckduckgo search engine, wikipedia and other websites.
 
-#### This project is part of the AI track at the 16th edition of the [Next Level Week (NLW Journey)](https://www.rocketseat.com.br/eventos/nlw)  held by [Rocketseat](https://www.rocketseat.com.br/discover) from 8-11 of July/2024.
-
 ### Setting up AWS Cloud with a Docker Image, Step by Step:
 
 <details>
@@ -109,26 +107,26 @@
     - Provide a Target group name (e.g. target-travelagent);
     - Select the recently created Lambda Function, with Version set to `$LATEST`
   - 8.4. Create Load Balancer (after adding the target group);
-  - 8.5 Edit Security configuration:
+  - 8.5. Edit Security configuration:
       - Head to Security > Open security group ID > Edit inbound rules:
           - Type: HTTP;
           - Port: 80;
           - Source: Custom -> `0.0.0.0/0`.
+  - 8.6. Make sure to copy the DNS Name from the Load Balancer to call the API.
     
 </details>
 
-<details>
-  <summary>9. Creating a call to our API:</summary>
+## Results: Creating a call to the API.
 
-  - 9.1 Make sure to copy the DNS Name from the Load Balancer;
-  - 9.2 `try.curl` file provides an example of a call to the API using curl. Here's the code:
-
-  ```curl
+#### `try.curl` file provides an example of a call to the API using curl. Here's the code:
+```curl
   curl -X POST "http://api-travelagent-232686593.us-east-2.elb.amazonaws.com" \
   -H "Content-Type: application/json" \
   -d '{
       "question": "Vou viajar para Londres em agosto de 2024. Quero que faça um roteiro de viagem para mim com eventos que irão ocorrer na data da viagem e com o preço da passagem de São Paulo para Londres ida e volta em reais."
   }'
   ```
-    
-</details>
+> The output should be printed in your terminal.
+
+
+<sub>This project is part of the AI track at the 16th edition of the [Next Level Week (NLW Journey)](https://www.rocketseat.com.br/eventos/nlw)  held by [Rocketseat](https://www.rocketseat.com.br/discover) from 8-11 of July/2024.</sub>
