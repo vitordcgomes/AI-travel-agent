@@ -1,8 +1,15 @@
 # AI Travel Agent
 
-## Implementing an AI Travel Agent using OpenAI's text API and LangChain framework to track information about future events with the help of duckduckgo search engine, wikipedia and other websites.
+### Implementing an AI Travel Agent using OpenAI's text API and LangChain framework to track information about future events with the help of duckduckgo search engine, wikipedia and other websites.
+
+## Project's Flowchart
+<img src="https://github.com/vitordcgomes/AI-travel-agent/blob/main/flowchart.png" alt="Screenshot" width="1050"/>
+
+##
+
 
 ### Setting up AWS Cloud with a Docker Image, Step by Step:
+
 
 <details>
   <summary>1. Create a `requirements.txt` file:</summary>
@@ -116,6 +123,8 @@
     
 </details>
 
+##
+
 ## Results: Creating a call to the API.
 
 #### `try.curl` file provides an example of a call to the API using curl. Here's the code:
@@ -128,5 +137,7 @@
   ```
 > The output should be printed in your terminal.
 
+
+## EXTRA: Running the project in the frontend provided.
 
 <sub>This project is part of the AI track at the 16th edition of the [Next Level Week (NLW Journey)](https://www.rocketseat.com.br/eventos/nlw)  held by [Rocketseat](https://www.rocketseat.com.br/discover) from 8-11 of July/2024.</sub>
