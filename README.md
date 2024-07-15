@@ -2,18 +2,25 @@
 
 ### Implementing an AI Travel Agent using OpenAI's text API and LangChain framework to track information about future events with the help of duckduckgo search engine, wikipedia and other websites.
 
-## Project's Flowchart
+## Project's Flowchart:
 <img src="https://github.com/vitordcgomes/AI-travel-agent/blob/main/flowchart.png" alt="Screenshot" width="1050"/>
 
 ##
 
+## How it works:
+  - The API Works receiving a `question` query/prompt with instructions to an AI travel agent that returns an answer with a complete travel itinerary based on the informations provided by the user:
+    
+    - User could input the trip destination and dates and ask for a complete travel itinerary, events that will happen at the trip's time and flight tickets price, for example.
+    - The AI agent then look up for the answer with the help of duckduckgo search engine, wikipedia, and other trip-related websites to ensure the most complete anwser possible.
 
-### Setting up AWS Cloud with a Docker Image, Step by Step:
+
+
+### How to set up AWS Cloud with a Docker Image and expose it to the Internet, Step by Step:
 
 
 <details>
   <summary>1. Create a `requirements.txt` file:</summary>
-  
+
   - 1.1. Make sure to create a `requirements.txt` file containing all the python packages you used in the project.
 
 </details>
@@ -64,7 +71,7 @@
   
   - 5.1. Head to the ECR Repository > View Push Commands.
       - Copy and paste the push commands into your terminal.
-      - At this point, make sure to build, tag and push everytime there's a change to the code. Also, don't forget to deploy the new image to the Lambda function.
+      - At this point, make sure to build, tag and push your image everytime there's a change to the code. Also, don't forget to deploy the new image to the Lambda function aswell.
 
   
 </details>
@@ -138,6 +145,28 @@
 > The output should be printed in your terminal.
 
 
-## EXTRA: Running the project in the frontend provided.
+## EXTRA: Running the project through the frontend provided.
+
+### If you'd like to see the api working through a frontend, make sure to follow the steps:
+
+  1. After cloning this repository to your directory, install `cors-anywhere` as following:
+     
+     1.1. Clone cors-anywhere repository inside this repository directory:
+     ```
+     git clone https://github.com/Rob--W/cors-anywhere.git
+     ```
+     1.2. Navigate to the directory and install dependencies with `npm`:
+     ```
+     cd cors-anywhere
+     npm install
+     ```
+     1.3. Start the server at **Port 8080**:
+     ```
+     node server.js -p 8080
+     ```
+     
+  2.  Now just open `index.html` file through Live Server VSCode Extension, or by just opening the file on your browser and have fun 😄.
+     
+ 
 
 <sub>This project is part of the AI track at the 16th edition of the [Next Level Week (NLW Journey)](https://www.rocketseat.com.br/eventos/nlw)  held by [Rocketseat](https://www.rocketseat.com.br/discover) from 8-11 of July/2024.</sub>
