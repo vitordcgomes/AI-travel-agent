@@ -3,7 +3,7 @@
 ### Implementing an AI Travel Agent using OpenAI's text API and LangChain framework to track information about future events with the help of duckduckgo search engine, wikipedia and other websites.
 
 ## Project's Flowchart:
-<img src="https://github.com/vitordcgomes/AI-travel-agent/blob/main/flowchart.png" alt="Screenshot" width="1050"/>
+<img src="https://github.com/vitordcgomes/AI-travel-agent/blob/main/image/flowchart.png" alt="Screenshot" width="1050"/>
 
 ##
 
