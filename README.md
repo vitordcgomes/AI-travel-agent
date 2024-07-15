@@ -147,11 +147,11 @@
 
 ## EXTRA: Running the project through the frontend provided.
 
-### If you'd like to see the api working through a frontend, make sure to follow the steps:
+### If you'd like to see the API working through a minimalist frontend, make sure to follow the steps:
 
   1. After cloning this repository to your directory, install `cors-anywhere` as following:
      
-     1.1. Clone cors-anywhere repository inside this repository directory:
+     1.1. Clone cors-anywhere repository inside this repository's directory:
      ```
      git clone https://github.com/Rob--W/cors-anywhere.git
      ```
@@ -165,7 +165,7 @@
      node server.js -p 8080
      ```
      
-  2.  Now just open `index.html` file through Live Server VSCode Extension, or by just opening the file on your browser and have fun 😄.
+  2.  Now just open `index.html` file through Live Server VSCode Extension, or by just opening the file on your browser, and have fun 😄.
      
  
 
